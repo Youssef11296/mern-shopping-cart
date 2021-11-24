@@ -13,7 +13,7 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// Create product | POST:/new
+// Create product | POST:/new | PRIVATE FOR ADMINS
 const createProduct = async (req, res) => {
   try {
     const newProduct = new Product (req.body);
@@ -34,7 +34,7 @@ const getProduct = async (req, res) => {
   }
 };
 
-// Delete product | DELETE:/:id
+// Delete product | DELETE:/:id | PRIVATE FOR ADMINS
 const deleteProduct = async (req, res) => {
   try {
     await Product.findByIdAndDelete (req.params.id);
@@ -44,5 +44,24 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+// Edit product | PATCH:/:ID | PRIVATE FOR ADMINS
+const editProduct = async (req, res) => {
+  try {
+    const editedProduct = await Product.findByIdAndUpdate (
+      req.params,
+      req.body
+    );
+    res.status (statusCode).json ({success: true, data: editedProduct});
+  } catch (error) {
+    res.status (statusCode).json ({success: false, message: error.message});
+  }
+};
+
 // Export all controllers
-module.exports = {getAllProducts, createProduct, getProduct, deleteProduct};
+module.exports = {
+  getAllProducts,
+  createProduct,
+  getProduct,
+  deleteProduct,
+  editProduct,
+};
