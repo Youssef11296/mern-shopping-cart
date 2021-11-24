@@ -29,3 +29,31 @@ export const createProduct =
       console.log(`Error: ${error}`);
     }
   };
+
+// Get product
+export const getProduct = (id: Product["_id"]) => async (dispatch: any) => {
+  try {
+    const { data } = await api.getProduct(id);
+    dispatch({
+      type: actionTypes.GET_PRODUCT,
+      payload: data.data,
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+};
+
+/* PRIVATE ADMIN ACTIONS */
+
+// Delete product
+export const deleteProduct = (id: Product["_id"]) => async (dispatch: any) => {
+  try {
+    await api.deleteProduct(id);
+    dispatch({
+      type: actionTypes.DELETE_PRODUCT,
+      payload: id,
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+};

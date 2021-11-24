@@ -1,0 +1,10 @@
+@import '../../sass/';
+
+.cart__message {
+    @include flex($justify: center, $align: center, $direction: column);
+    height: 100%;
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+}

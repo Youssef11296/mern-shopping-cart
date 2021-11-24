@@ -3,7 +3,7 @@ interface Product {
   name: string;
   description: string;
   price: number;
-  image: string;
+  imageURL: string;
 }
 
 interface Action {

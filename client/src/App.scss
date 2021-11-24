@@ -8,5 +8,18 @@
     &>div {
         flex: 1;
         padding: 1rem;
+        opacity: 0;
+        animation: fadeIn .5s ease-in-out forwards;
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

@@ -14,6 +14,20 @@ button {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+
+    &.btn {
+        width: 200px;
+        padding: .5rem;
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #000;
+    }
+}
+
 // Mixins
 @mixin flex($justify: flex-start, $align: flex-start, $direction: row, $flex: initial, $wrap: no-wrap) {
     display: flex;
