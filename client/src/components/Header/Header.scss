@@ -8,6 +8,7 @@ header {
 
     .header__logo {
         color: #000;
+        text-transform: uppercase;
     }
 
     nav {
@@ -28,6 +29,7 @@ header {
                 a {
                     color: #444;
                     font-size: 1.2rem;
+                    font-weight: 600;
                     text-decoration: none;
                     transition: all .3s ease-in-out;
 
@@ -41,6 +43,10 @@ header {
 
     .header__menuIcon {
         cursor: pointer;
+
+        &__mui {
+            font-size: 2rem !important;
+        }
     }
 }
 

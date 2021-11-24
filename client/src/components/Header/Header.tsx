@@ -23,7 +23,7 @@ const Header = () => {
       </nav>
       <div className="header__menuIcon">
         <IconButton>
-          <MenuSharp />
+          <MenuSharp className="header__menuIcon__mui" />
         </IconButton>
       </div>
     </header>

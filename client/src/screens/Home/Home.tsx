@@ -1,7 +1,10 @@
+// Components
+import ProductsList from "../../components/ProductsList/ProductsList";
+
 const Home = () => {
   return (
     <div className="home">
-      <h1>Home</h1>
+      <ProductsList />
     </div>
   );
 };

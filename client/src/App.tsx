@@ -5,8 +5,18 @@ import Header from "./components/Header/Header";
 import Home from "./screens/Home/Home";
 // Styles
 import "./App.scss";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "./store/actions/products";
 
 const App = () => {
+  // dispatcher
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
   return (
     <Router>
       <div className="app">
