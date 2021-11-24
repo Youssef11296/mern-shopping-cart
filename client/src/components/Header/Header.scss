@@ -1,8 +1,12 @@
+@import '../../sass/';
+
 header {
+    @include flex($justify: space-between, $align: center);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #fff;
     box-shadow: 0 0 2px 4px rgba(0, 0, 0, .2);
 
@@ -15,8 +19,7 @@ header {
         display: none;
 
         ul {
-            display: flex;
-            align-items: center;
+            @include flex($align:center);
 
             li {
                 list-style: none;
@@ -27,11 +30,15 @@ header {
                 }
 
                 a {
-                    color: #444;
+                    color: #888;
                     font-size: 1.2rem;
                     font-weight: 600;
                     text-decoration: none;
                     transition: all .3s ease-in-out;
+
+                    &.active {
+                        color: #000;
+                    }
 
                     &:hover {
                         color: #000;

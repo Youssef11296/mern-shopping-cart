@@ -8,6 +8,7 @@ import "./App.scss";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllProducts } from "./store/actions/products";
+import AddProduct from "./screens/AddProduct/AddProduct";
 
 const App = () => {
   // dispatcher
@@ -23,6 +24,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/new" element={<AddProduct />} />
           <Route path="/cart" element={<h1>Cart</h1>} />
         </Routes>
       </div>

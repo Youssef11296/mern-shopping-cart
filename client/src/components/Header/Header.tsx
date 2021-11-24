@@ -1,5 +1,5 @@
 // Modules
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IconButton } from "@material-ui/core";
 import { MenuSharp } from "@material-ui/icons";
 // Styles
@@ -14,10 +14,13 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <NavLink to="/new">Add Product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart">Cart</NavLink>
           </li>
         </ul>
       </nav>

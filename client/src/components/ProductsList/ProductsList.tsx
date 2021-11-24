@@ -11,9 +11,9 @@ const ProductsList = () => {
   const products = useSelector((state: RootState) => state.products.products);
   console.log({ products });
   return (
-    <div className="products__list">
-      {products.map((product, index) => (
-        <ProductItem product={product} />
+    <div className="productsList">
+      {products.map((product: Product, index: number) => (
+        <ProductItem key={product._id} product={product} />
       ))}
     </div>
   );

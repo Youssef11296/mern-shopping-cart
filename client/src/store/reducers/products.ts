@@ -10,7 +10,10 @@ const initailState = {
 const productReducer = (state = initailState, action: Action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_PRODUCTS:
-      return { ...state, product: action.payload };
+      console.log({data: action.payload})
+      return { ...state, products: action.payload };
+    case actionTypes.CREATE_PRODUCT:
+      return { ...state, products: [...state.products, action.payload] };
     default:
       return { ...state };
   }

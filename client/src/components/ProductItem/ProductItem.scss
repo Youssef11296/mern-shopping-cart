@@ -1,0 +1,57 @@
+@import '../../sass/';
+
+.productItem {
+    @include flex($direction: column);
+    min-width: 300px;
+    height: 400px;
+    background: #fff;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, .2);
+    padding: 1rem;
+    border-radius: 5px;
+
+    &__image {
+        height: 120px;
+
+        img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__info {
+        @include flex($justify: center, $direction: column, $flex: 1);
+
+        .productItem__description {
+            display: block;
+            line-height: 1.5px;
+            margin: 1rem 0;
+            flex: 1;
+        }
+    }
+
+    .productItem__controllers {
+        width: 100%;
+        margin-top: 1rem;
+        display: grid;
+        gap: .5rem;
+        grid-template-columns: 1fr 1fr;
+
+        button {
+            background: #000;
+            color: #fff;
+            padding: .5rem;
+            font-size: 1.2rem;
+            border-radius: 4px;
+        }
+    }
+}
+
+// @media screen and (max-width:700px) {
+//     //     .productItem {
+//     //         .productItem__controllers {
+//     //             button {
+//     //                 width: 150px
+//     //             }
+//     //         }
+//     //     }
+//     // }
