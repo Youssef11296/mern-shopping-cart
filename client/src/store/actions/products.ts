@@ -43,6 +43,22 @@ export const getProduct = (id: Product["_id"]) => async (dispatch: any) => {
   }
 };
 
+// TODO: EDIT PRODUCT TO ADD IT TO THE CART
+
+// Edit product
+export const addProductToCart =
+  (id: Product["_id"]) => async (dispatch: any) => {
+    try {
+      const { data } = await api.editProduct(id);
+      dispatch({
+        type: actionTypes.EDIT_PRODUCT,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
+
 /* PRIVATE ADMIN ACTIONS */
 
 // Delete product

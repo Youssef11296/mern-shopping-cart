@@ -13,6 +13,16 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+// Get product | GET:/:id
+const getProduct = async (req, res) => {
+  try {
+    const filteredProduct = await Product.findById (req.params.id);
+    res.status (200).json ({success: true, data: filteredProduct});
+  } catch (error) {
+    res.status (404).json ({success: false, message: error.message});
+  }
+};
+
 // Create product | POST:/new | PRIVATE FOR ADMINS
 const createProduct = async (req, res) => {
   try {
@@ -21,16 +31,6 @@ const createProduct = async (req, res) => {
     res.status (201).json ({success: true, data: newProduct});
   } catch (error) {
     res.status (401).json ({success: false, message: error.message});
-  }
-};
-
-// Get product | GET:/:id
-const getProduct = async (req, res) => {
-  try {
-    const filteredProduct = await Product.findById (req.params.id);
-    res.status (200).json ({success: true, data: filteredProduct});
-  } catch (error) {
-    res.status (404).json ({success: false, message: error.message});
   }
 };
 
@@ -48,12 +48,12 @@ const deleteProduct = async (req, res) => {
 const editProduct = async (req, res) => {
   try {
     const editedProduct = await Product.findByIdAndUpdate (
-      req.params,
+      req.params.id,
       req.body
     );
-    res.status (statusCode).json ({success: true, data: editedProduct});
+    res.json ({success: true, data: editedProduct});
   } catch (error) {
-    res.status (statusCode).json ({success: false, message: error.message});
+    res.json ({success: false, message: error.message});
   }
 };
 

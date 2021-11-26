@@ -17,6 +17,7 @@ const app = express ();
 app.use (express.json ());
 app.use (cors ());
 app.use ('/api/products', require ('./routes/products'));
+app.use ('/api/cart', require ('./routes/cart'));
 
 // Server configuration
 const port = process.env.PORT || 5000;

@@ -1,14 +1,17 @@
 // Modules & Hooks
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getProduct } from "../../store/actions/products";
+import { addProductToCart, getProduct } from "../../store/actions/products";
+import { useState } from "react";
+import { IconButton } from "@material-ui/core";
+import { MoreVert } from "@material-ui/icons";
+
+// Components
+import Modal from "../Modal/Modal";
 
 // Styles
 import "./ProductItem.scss";
-import { IconButton } from "@material-ui/core";
-import { MoreVert } from "@material-ui/icons";
-import Modal from "../Modal/Modal";
-import { useState } from "react";
+
 // Props
 interface Props {
   product: Product;
@@ -28,6 +31,11 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
   // Toggle options modal
   const toggleModal = () => setOpenModal((ps) => !ps);
+
+  // Add to cart
+  const addToCart = () => {
+    dispatch(addProductToCart(product._id));
+  };
 
   return (
     <div className="productItem">
@@ -57,7 +65,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         >
           View
         </Link>
-        <button>Add To Cart</button>
+        <button onClick={addToCart}>Add To Cart</button>
       </div>
 
       {openModal ? <Modal productId={product._id} /> : null}

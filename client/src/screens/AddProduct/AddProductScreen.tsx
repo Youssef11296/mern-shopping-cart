@@ -1,9 +1,9 @@
 // Components
 import AddForm from "../../components/AddForm/AddForm";
 // Styles
-import "./AddProduct.scss";
+import "./AddProductScreen.scss";
 
-const AddProduct = () => {
+const AddProductScreen = () => {
   return (
     <div className="add__product">
       <AddForm />
@@ -11,4 +11,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddProductScreen;

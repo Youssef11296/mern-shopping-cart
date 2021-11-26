@@ -3,11 +3,13 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Link } from "react-router-dom";
 // Styles
-import "./Cart.scss";
+import "./CartScreen.scss";
+import CartProduct from "../../components/CartProduct/CartProduct";
 
-const Cart = () => {
+const CartScreen = () => {
   // selectors
-  const cart = useSelector((state: RootState) => state.products.cart);
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  console.log(cart);
 
   if (cart.length === 0) {
     return (
@@ -23,10 +25,10 @@ const Cart = () => {
   return (
     <div className="cart">
       {cart.map((product: Product, index: number) => (
-        <h2>Cart Product</h2>
+        <CartProduct product={product} />
       ))}
     </div>
   );
 };
 
-export default Cart;
+export default CartScreen;

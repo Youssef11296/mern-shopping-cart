@@ -1,24 +1,32 @@
-// Modules
+// Modules & Hooks
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// components
-import Header from "./components/Header/Header";
-import Home from "./screens/Home/Home";
-// Styles
-import "./App.scss";
-import { useDispatch } from "react-redux";
+import { getCartProducts } from "./store/actions/cart";
+import { RootState } from "./store";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllProducts } from "./store/actions/products";
-import AddProduct from "./screens/AddProduct/AddProduct";
-import Cart from "./screens/Cart/Cart";
+// components
+import Header from "./components/Header/Header";
 import FilteredProduct from "./components/FilteredProduct/FilteredProduct";
+// Screens
+import Home from "./screens/Home/HomeScreen";
+import Cart from "./screens/Cart/CartScreen";
+import AddProduct from "./screens/AddProduct/AddProductScreen";
+// Styles
+import "./App.scss";
 
 const App = () => {
   // dispatcher
   const dispatch = useDispatch();
+  // selectors
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(getCartProducts());
   }, [dispatch]);
+
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  console.log(cart);
 
   return (
     <Router>
