@@ -19,8 +19,9 @@ const CartProduct: React.FC<Props> = ({ product }) => {
           <h3 className="product__price">${product.price}</h3>
         </div>
         <div className="cart__product__controllers">
-          <button>Remove From Cart</button>
-          <button>Add One More</button>
+          <button>x</button>
+          <button>+</button>
+          <button>-</button>
         </div>
       </div>
     </div>

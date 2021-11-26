@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 // Modules & Hooks
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -10,6 +11,15 @@ const CartScreen = () => {
   // selectors
   const cart = useSelector((state: RootState) => state.cart.cart);
   console.log(cart);
+
+  // total cost
+  const totalCost = () => {
+    let cost = 0;
+    cart.map((product: Product) => {
+      cost += product.price;
+    });
+    return cost;
+  };
 
   if (cart.length === 0) {
     return (
@@ -24,9 +34,15 @@ const CartScreen = () => {
 
   return (
     <div className="cart">
-      {cart.map((product: Product, index: number) => (
-        <CartProduct product={product} />
-      ))}
+      <div className="cart__products__container">
+        {cart.map((product: Product, index: number) => (
+          <CartProduct product={product} />
+        ))}
+      </div>
+      <div className="cart__products__summery">
+        <h2>Total Cost</h2>
+        <p>${totalCost()}</p>
+      </div>
     </div>
   );
 };
