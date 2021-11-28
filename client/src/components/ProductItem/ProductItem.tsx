@@ -65,7 +65,17 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         >
           View
         </Link>
-        <button onClick={addToCart}>Add To Cart</button>
+        <button
+          onClick={addToCart}
+          disabled={product.added}
+          style={{
+            background: product.added ? "#ddd" : "#000",
+            color: product.added ? "#000" : "#fff",
+            opacity: 0.8,
+          }}
+        >
+          Add To Cart
+        </button>
       </div>
 
       {openModal ? <Modal productId={product._id} /> : null}

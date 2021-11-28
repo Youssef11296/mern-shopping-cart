@@ -12,11 +12,11 @@
     }
 
     .cart__product__image {
-        width: 400px;
+        width: 300px;
         margin-right: 2rem;
 
         img {
-            min-width: 100%;
+            max-width: 100%;
             width: 100%;
             object-fit: contain;
         }

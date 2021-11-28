@@ -22,7 +22,9 @@ router.post ('/new', createProduct);
 // Delete product | PRIVATE FOR ADMINS
 router.delete ('/:id', deleteProduct);
 
-// Edit product | PUBLIC FOR AUTHENICATED USER FOR ADD PRODUCT TO HIS CART | PRIVATE FOR ADMINS
+// Edit product
+// PRIVATE FOR ADMINS
+// PUBLIC FOR AUTHENICATED USERS FOR ADD PRODUCT TO THEIR CARTS
 router.patch ('/:id', editProduct);
 
 // Export the router

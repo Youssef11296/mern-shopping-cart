@@ -36,7 +36,7 @@ const CartScreen = () => {
     <div className="cart">
       <div className="cart__products__container">
         {cart.map((product: Product, index: number) => (
-          <CartProduct product={product} />
+          <CartProduct key={product._id} product={product} />
         ))}
       </div>
       <div className="cart__products__summery">

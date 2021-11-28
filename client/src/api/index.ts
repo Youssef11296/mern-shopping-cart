@@ -20,8 +20,12 @@ export const deleteProduct = (id: Product["_id"]) =>
   axios.delete(`${url}/products/${id}`);
 
 // Edit product & Add to cart
-export const editProduct = (id: Product["_id"]) =>
+export const addProductToCart = (id: Product["_id"]) =>
   axios.patch(`${url}/products/${id}`, { added: true });
+
+// Delete cart product
+export const removeCartProduct = (id: Product["_id"]) =>
+  axios.patch(`${url}/cart/products/${id}`, { added: false });
 
 // Get cart products
 export const getCartProducts = () => axios.get(`${url}/cart`);

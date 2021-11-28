@@ -8,7 +8,7 @@
         width: 50vw;
 
         img {
-            min-width: 100%;
+            width: 100%;
             object-fit: contain;
         }
     }
@@ -50,14 +50,14 @@
         height: 300px;
 
         .filteredProduct__image {
-            width: 25%;
+            width: 25vw;
             margin: auto;
 
-            img {
-                width: 40vw;
-                margin: auto;
-                object-fit: contain;
-            }
+            // img {
+            //     width: 40vw;
+            //     margin: auto;
+            //     object-fit: contain;
+            // }
         }
 
         .filteredProduct__right {

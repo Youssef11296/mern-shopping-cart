@@ -49,10 +49,11 @@ export const getProduct = (id: Product["_id"]) => async (dispatch: any) => {
 export const addProductToCart =
   (id: Product["_id"]) => async (dispatch: any) => {
     try {
-      const { data } = await api.editProduct(id);
+      const { data } = await api.addProductToCart(id);
+      console.log({ added: data });
       dispatch({
-        type: actionTypes.EDIT_PRODUCT,
-        payload: data,
+        type: actionTypes.ADD_TO_CART,
+        payload: data.data,
       });
     } catch (error) {
       console.log(`Error: ${error}`);

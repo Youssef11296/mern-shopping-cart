@@ -14,10 +14,20 @@ const cartReducer = (state = initialState, action: Action) => {
     case actionTypes.DELETE_PRODUCT:
       return {
         ...state,
-        products: state.cart.filter(
+        cart: state.cart.filter(
           (product: Product) => product._id !== action.payload
         ),
       };
+    case actionTypes.REMOVE_CART_PRODUCT:
+      console.log({ deleted: action.payload });
+      return {
+        ...state,
+        cart: state.cart.filter(
+          (product: Product) => product._id !== action.payload._id
+        ),
+      };
+    case actionTypes.ADD_TO_CART:
+      return { ...state, cart: [...state.cart, action.payload] };
     default:
       return { ...state };
   }

@@ -23,15 +23,6 @@ const productReducer = (state = initailState, action: Action) => {
     case actionTypes.CREATE_PRODUCT:
       return { ...state, products: [...state.products, action.payload] };
 
-    // case actionTypes.EDIT_PRODUCT:
-    //   console.log({ res: action.payload });
-    //   return {
-    //     ...state,
-    //     cart: action.payload.success
-    //       ? [...state.cart, action.payload]
-    //       : state.cart,
-    //   };
-
     case actionTypes.DELETE_PRODUCT:
       return {
         ...state,
