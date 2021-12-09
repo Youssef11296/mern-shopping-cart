@@ -42,7 +42,9 @@ const AddForm = () => {
           {...register("description")}
         />
       </div>
-      <button type="submit">Add</button>
+      <button type="submit" className="btn">
+        Add
+      </button>
     </form>
   );
 };

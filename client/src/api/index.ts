@@ -19,13 +19,28 @@ export const getProduct = (id: Product["_id"]) =>
 export const deleteProduct = (id: Product["_id"]) =>
   axios.delete(`${url}/products/${id}`);
 
-// Edit product & Add to cart
+// Add to cart
 export const addProductToCart = (id: Product["_id"]) =>
-  axios.patch(`${url}/products/${id}`, { added: true });
+  axios.patch(`${url}/products/${id}`, {
+    added: true,
+    selectedCartAmount: 1,
+  });
+
+// Increase cart product amount
+export const updateCartProductAmount = (
+  productId: Product["_id"],
+  amount: number
+) =>
+  axios.patch(`${url}/cart/products/${productId}`, {
+    selectedCartAmount: amount,
+  });
 
 // Delete cart product
 export const removeCartProduct = (id: Product["_id"]) =>
-  axios.patch(`${url}/cart/products/${id}`, { added: false });
+  axios.patch(`${url}/cart/products/${id}`, {
+    added: false,
+    selectedCartAmount: 0,
+  });
 
 // Get cart products
 export const getCartProducts = () => axios.get(`${url}/cart`);

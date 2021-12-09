@@ -10,16 +10,7 @@ import CartProduct from "../../components/CartProduct/CartProduct";
 const CartScreen = () => {
   // selectors
   const cart = useSelector((state: RootState) => state.cart.cart);
-  console.log(cart);
-
-  // total cost
-  const totalCost = () => {
-    let cost = 0;
-    cart.map((product: Product) => {
-      cost += product.price;
-    });
-    return cost;
-  };
+  const totalCost = useSelector((state: RootState) => state.cart.totalCost);
 
   if (cart.length === 0) {
     return (
@@ -41,7 +32,7 @@ const CartScreen = () => {
       </div>
       <div className="cart__products__summery">
         <h2>Total Cost</h2>
-        <p>${totalCost()}</p>
+        <p>{totalCost}</p>
       </div>
     </div>
   );

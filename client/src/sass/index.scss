@@ -28,6 +28,18 @@ a {
     }
 }
 
+.btn {
+    padding: 1rem;
+    width: 200px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: #000;
+    border-radius: 5px;
+    color: #fff;
+    transition: all .3s ease;
+}
+
 // Mixins
 @mixin flex($justify: flex-start, $align: flex-start, $direction: row, $flex: initial, $wrap: no-wrap) {
     display: flex;

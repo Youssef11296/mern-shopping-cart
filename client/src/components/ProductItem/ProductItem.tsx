@@ -21,6 +21,8 @@ const ProductItem: React.FC<Props> = ({ product }) => {
   // Dispatcher
   const dispatch = useDispatch();
 
+  // console.log({ amount: product.selectedCartAmount });
+
   // View handler
   const viewHandler = (id: Product["_id"]) => {
     dispatch(getProduct(id));
@@ -34,6 +36,8 @@ const ProductItem: React.FC<Props> = ({ product }) => {
 
   // Add to cart
   const addToCart = () => {
+    const amount = product.selectedCartAmount;
+    console.log(amount + 1);
     dispatch(addProductToCart(product._id));
   };
 
@@ -65,13 +69,16 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         >
           View
         </Link>
+        {/*
+          TODO: MAKE THE ADD BUTTON DISABLED ONCE THE USER ADD IT TO THE CART WITHOUT RELOADING THE PAGE
+        */}
         <button
           onClick={addToCart}
           disabled={product.added}
           style={{
             background: product.added ? "#ddd" : "#000",
             color: product.added ? "#000" : "#fff",
-            opacity: 0.8,
+            opacity: product.added ? 0.8 : 1,
           }}
         >
           Add To Cart

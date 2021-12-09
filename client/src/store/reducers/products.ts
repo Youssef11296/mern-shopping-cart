@@ -30,6 +30,27 @@ const productReducer = (state = initailState, action: Action) => {
           (product: Product) => product._id !== action.payload
         ),
       };
+    case actionTypes.ADD_TO_CART:
+      console.log({ added: action.payload });
+      return {
+        ...state,
+        product: state.products.map((product: Product) =>
+          product._id === action.payload._id
+            ? { ...product, added: true }
+            : product
+        ),
+      };
+
+    case actionTypes.REMOVE_CART_PRODUCT:
+      return {
+        ...state,
+        products: state.products.map((product: Product) =>
+          product._id === action.payload._id
+            ? { ...product, added: false }
+            : product
+        ),
+      };
+
     default:
       return { ...state };
   }

@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 // Initial state
 const initialState = {
   cart: [],
+  totalCost: 0,
 };
 
 /* Reducer */
@@ -28,6 +29,14 @@ const cartReducer = (state = initialState, action: Action) => {
       };
     case actionTypes.ADD_TO_CART:
       return { ...state, cart: [...state.cart, action.payload] };
+    case actionTypes.CHECK_TOTAL_COST:
+      return {
+        ...state,
+        totalCost: state.cart.map(
+          (product: Product) =>
+            (state.totalCost += product.price * product.selectedCartAmount)
+        ),
+      };
     default:
       return { ...state };
   }

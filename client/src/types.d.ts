@@ -5,6 +5,7 @@ interface Product {
   price: number;
   imageURL: string;
   added?: boolean;
+  selectedCartAmount: number | 0;
 }
 
 interface Action {

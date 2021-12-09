@@ -30,3 +30,10 @@ export const removeCartProduct =
       console.log(`Error: ${error}`);
     }
   };
+
+// Check total cost
+export const checkTotalCost = () => {
+  return {
+    type: actionTypes.CHECK_TOTAL_COST,
+  };
+};

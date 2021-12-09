@@ -45,7 +45,7 @@ export const getProduct = (id: Product["_id"]) => async (dispatch: any) => {
 
 // TODO: EDIT PRODUCT TO ADD IT TO THE CART
 
-// Edit product
+// Add product to cart
 export const addProductToCart =
   (id: Product["_id"]) => async (dispatch: any) => {
     try {
@@ -60,6 +60,20 @@ export const addProductToCart =
     }
   };
 
+// Update number of cart product items
+export const updateCartProductAmount =
+  (productId: Product["_id"], amount: number) => async (dispatch: any) => {
+    try {
+      const { data } = await api.updateCartProductAmount(productId, amount);
+      console.log({ updated: data });
+      dispatch({
+        type: actionTypes.INCREASE_CART_PRODUCT_ITEMS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
 /* PRIVATE ADMIN ACTIONS */
 
 // Delete product

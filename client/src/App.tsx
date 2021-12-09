@@ -14,6 +14,7 @@ import Cart from "./screens/Cart/CartScreen";
 import AddProduct from "./screens/AddProduct/AddProductScreen";
 // Styles
 import "./App.scss";
+import LoginScreen from "./screens/Login/LoginScreen";
 
 const App = () => {
   // dispatcher
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/products/:id" element={<FilteredProduct />} />
           <Route path="/new" element={<AddProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginScreen />} />
         </Routes>
       </div>
     </Router>
