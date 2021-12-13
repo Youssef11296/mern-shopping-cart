@@ -1,20 +1,17 @@
-// Modules & Hooks
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { getCartProducts } from "./store/actions/cart";
-import { RootState } from "./store";
-import { useDispatch, useSelector } from "react-redux";
+// modules & hooks
 import { useEffect } from "react";
-import { getAllProducts } from "./store/actions/products";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// context
+import { RootState } from "./context";
+import { getCartProducts } from "./context/actions/cart";
+import { getAllProducts } from "./context/actions/products";
 // components
-import Header from "./components/Header/Header";
-import FilteredProduct from "./components/FilteredProduct/FilteredProduct";
-// Screens
-import Home from "./screens/Home/HomeScreen";
-import Cart from "./screens/Cart/CartScreen";
-import AddProduct from "./screens/AddProduct/AddProductScreen";
-// Styles
-import "./App.scss";
-import LoginScreen from "./screens/Login/LoginScreen";
+import { Header, FilteredProduct } from "./components/";
+// pages
+import { HomePage, CartPage, LoginPage, AddProductPage } from "./pages";
+// styles
+import "./styles/App.scss";
 
 const App = () => {
   // dispatcher
@@ -34,11 +31,11 @@ const App = () => {
       <div className="app">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/products/:id" element={<FilteredProduct />} />
-          <Route path="/new" element={<AddProduct />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/new" element={<AddProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
     </Router>

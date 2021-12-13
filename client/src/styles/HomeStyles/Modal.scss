@@ -1,0 +1,33 @@
+@import '../';
+
+.mui__modal {
+    &>div {
+        position: absolute !important;
+        max-width: 50%;
+    }
+}
+
+.modal {
+    background: #fff;
+    box-shadow: 0 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+
+    &__options {
+        @include flex($direction: column, $justify:space-evenly);
+
+        button {
+            color: #fff;
+            background: #000;
+            padding: .8rem;
+            width: 100%;
+            margin: .5rem 0;
+            border-radius: 4px;
+        }
+    }
+}

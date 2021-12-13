@@ -1,8 +1,9 @@
-// Axios
+// Axios & Config
 import axios from "axios";
+import { apiUrl } from "../config";
 
 // Main url
-const url = "http://localhost:5000/api";
+const url = apiUrl;
 
 // Get all products
 export const getAllProducts = () => axios.get(`${url}/products`);
